@@ -19,13 +19,12 @@ const slides = [
 ];
 
 const leftArrowElt = document.querySelector(".arrow_left");
-console.log(leftArrowElt);
+const rightArrowElt = document.querySelector(".arrow_right");
+
 leftArrowElt.addEventListener("click", () => {
   alert("clic flèche gauche");
 });
 
-const rightArrowElt = document.querySelector(".arrow_right");
-console.log(rightArrowElt);
 rightArrowElt.addEventListener("click", () => {
   alert("clic flèche droite");
 });
