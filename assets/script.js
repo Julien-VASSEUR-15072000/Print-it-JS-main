@@ -18,13 +18,65 @@ const slides = [
   },
 ];
 
+const divDots = [
+  {
+    div: `<div class="dot dot_selected"></div> 
+  <div class="dot"></div> 
+  <div class="dot"></div> 
+  <div class="dot"></div>`,
+  },
+  {
+    div: `<div class="dot"></div> 
+  <div class="dot dot_selected"></div> 
+  <div class="dot"></div> 
+  <div class="dot"></div>`,
+  },
+  {
+    div: `<div class="dot"></div> 
+  <div class="dot"></div> 
+  <div class="dot dot_selected"></div> 
+  <div class="dot"></div>`,
+  },
+  {
+    div: `<div class="dot"></div> 
+  <div class="dot"></div> 
+  <div class="dot"></div>
+  <div class="dot dot_selected"></div>`,
+  },
+];
+
 const leftArrowElt = document.querySelector(".arrow_left");
 const rightArrowElt = document.querySelector(".arrow_right");
 
+const bannerImgElt = document.querySelector(".banner-img");
+
+const tagLine = document.querySelector("p");
+const dots = document.querySelector(".dots");
+
+let currentSlide = 0;
+
 leftArrowElt.addEventListener("click", () => {
-  alert("clic flèche gauche");
+  if (currentSlide > 0) {
+    currentSlide = currentSlide - 1;
+  } else {
+    currentSlide = currentSlide + 3;
+  }
+  bannerImgElt.src = `assets/images/slideshow/` + slides[currentSlide].image;
+  tagLine.innerHTML = slides[currentSlide].tagLine;
+  dots.innerHTML = divDots[currentSlide].div;
+
+  console.log(dots);
 });
 
 rightArrowElt.addEventListener("click", () => {
-  alert("clic flèche droite");
+  if (currentSlide < 3) {
+    currentSlide = currentSlide + 1;
+  } else {
+    currentSlide = currentSlide - 3;
+  }
+  bannerImgElt.src = `assets/images/slideshow/` + slides[currentSlide].image;
+  tagLine.innerHTML = slides[currentSlide].tagLine;
+  dots.innerHTML = divDots[currentSlide].div;
+
+  console.log(dots);
 });
